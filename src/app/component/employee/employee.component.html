@@ -30,6 +30,7 @@
                         <th>Contact No</th>
                         <th>Email</th>
                         <th>City</th>
+                        <th>Action</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-employee>
@@ -40,6 +41,11 @@
                         <td>{{ employee.empContactNo }}</td>
                         <td>{{ employee.empEmail }}</td>
                         <td>{{ employee.city }}</td>
+                        <td class="empIcon">
+                            <i class="fa-solid fa-pen-to-square mx-3" style="color: #135bd8;" pTooltip=" Edit " 
+                            tooltipPosition="left"></i>
+                            <i class="fa-solid fa-trash-can"></i>
+                        </td>
                     </tr>
                 </ng-template>
             </p-table>

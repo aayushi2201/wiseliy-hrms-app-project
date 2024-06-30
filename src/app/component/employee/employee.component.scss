@@ -1,6 +1,10 @@
 // Overall Container Styles
 .cursor-pointer{
     cursor: pointer;
+
+    .empIcon{
+        font-size: 20px;
+    }
 }
 .container {
     max-width: 1150px;

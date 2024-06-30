@@ -30,6 +30,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { AddEmployeeComponent } from './shared/employee_shared/add-employee/add-employee.component';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { InputTextModule } from 'primeng/inputtext';
     TableModule,
     HttpClientModule,
     DialogModule,
-    InputTextModule
+    InputTextModule,
+    TooltipModule
   ],
   providers: [
     MessageService,

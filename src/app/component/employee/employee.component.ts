@@ -25,9 +25,7 @@ export class EmployeeComponent implements OnInit {
   }
   updateAddEmp() {
     debugger
-  
     this.getAllEmployeesData();
-    this.addEmployeeComponent.CreateEmployee();
   }
   getAllEmployeesData() {
     debugger

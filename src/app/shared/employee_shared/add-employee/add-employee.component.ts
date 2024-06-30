@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { EmployeeService } from '../../../../service/employee.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
-  styleUrl: './add-employee.component.scss'
+  styleUrl: './add-employee.component.scss',
+  providers: [MessageService]
 })
 export class AddEmployeeComponent implements OnInit {
 
@@ -15,7 +17,9 @@ export class AddEmployeeComponent implements OnInit {
 
   employeeObj: any
 
-  constructor(private _EmployeeService: EmployeeService) {
+  constructor(private _EmployeeService: EmployeeService,
+    private messageService: MessageService
+  ) {
     this.resetEmpObj()
   }
   resetEmpObj() {
@@ -45,29 +49,27 @@ export class AddEmployeeComponent implements OnInit {
     this.hideSideBarModal.emit(this.ShowEmployeeAdd)
   }
 
-  closemodal() {
-    this.ShowEmployeeAdd = false
-    this.hideSideBarModal.emit(this.ShowEmployeeAdd)
-  }
-
   CreateEmployee() {
     debugger
     this._EmployeeService.createEmployee(this.employeeObj).subscribe(
       (res: any) => {
         debugger;
-        console.log(res); // Check what res contains
         if (res.result) {
-          console.log(res);
-          // this.update.emit();
-          alert(res.message);
-          this.resetEmpObj()
+          this.update.emit();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Confirmed',
+            detail: 'Employee Created successfully',
+          })
+          this.resetEmpObj();
+          this.closeaddEmployee()
         } else {
-          alert(res.message); // If res.result is false or undefined
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Employee Created Unsuccessfully',
+          })
         }
-      },
-      (error) => {
-        console.error('HTTP Error:', error); // Log any HTTP errors
-        alert('HTTP Error: ' + error.message); // Show an alert for HTTP errors
       }
     );
   }

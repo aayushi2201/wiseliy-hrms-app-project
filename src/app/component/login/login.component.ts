@@ -22,17 +22,22 @@ export class LoginComponent {
     debugger
 
     if (this.email == '') {
-      // this.messageService.add({
-      //   severity: 'info',
-      //   summary: 'Info',
-      //   detail: 'Please enter the email'
-      // });
-      alert('Please Enter the email');
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Info',
+        detail: 'Please enter the email'
+      });
+      // alert('Please Enter the email');
       return
     }
 
     if (this.password == '') {
-      alert('Please enter the password');
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Info',
+        detail: 'Please enter the password'
+      });
+      // alert('Please enter the password');
       return
     }
 

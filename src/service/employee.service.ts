@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'http://onlinetestapi.gerasim.in/api/TeamSync';
+  private apiUrl = 'http://localhost:5020/api/TeamSync';
+  // private empUrl='http://onlinetestapi.gerasim.in/api/TeamSync'
   constructor(private http: HttpClient) { }
 
   getAllEmployee(): Observable<any> {
@@ -15,7 +16,13 @@ export class EmployeeService {
   }
 
   createEmployee(employeeData: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': ' application/json-patch+json' });
+    debugger
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json-patch+json' });
     return this.http.post<any>(`${this.apiUrl}/CreateEmployee`, employeeData, { headers: headers })
+  }
+
+  deleteEmployee(empId: any) {
+    debugger
+    return this.http.get<any>(`${this.apiUrl}/DeleteEmployeeByEmpId?empid=` + empId)
   }
 }

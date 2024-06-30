@@ -1,5 +1,6 @@
+<p-toast />
 <p-dialog [(visible)]="ShowEmployeeAdd" modal="true" [position]="position" class="sidebarModal rightside-modal"
-    [baseZIndex]="10000" [draggable]="false" [resizable]="false" (onHide)="closemodal()"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false" (onHide)="closeaddEmployee()"
     [style]="{width: 'calc(100vw - 50%)', height:'100%', 'max-height':'100%'}">
     <ng-template pTemplate="header">
         <div class="d-flex align-items-center">

@@ -1,3 +1,4 @@
+<p-toast />
 <div class="container">
     <div class="search-bar">
         <form class="form-inline">
@@ -42,9 +43,9 @@
                         <td>{{ employee.empEmail }}</td>
                         <td>{{ employee.city }}</td>
                         <td class="empIcon">
-                            <i class="fa-solid fa-pen-to-square mx-3" style="color: #135bd8;" pTooltip=" Edit " 
-                            tooltipPosition="left"></i>
-                            <i class="fa-solid fa-trash-can"></i>
+                            <i class="fa-solid fa-pen-to-square mx-3" style="color: #135bd8;" pTooltip=" Edit "
+                                tooltipPosition="left"></i>
+                            <i class="fa-solid fa-trash-can" (click)="DeleteEmployee(employee.empId)"></i>
                         </td>
                     </tr>
                 </ng-template>

@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://onlinetestapi.gerasim.in",
+      "target": "http://localhost:5020",
       "secure": false,
       "changeOrigin": true
     }

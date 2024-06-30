@@ -20,12 +20,22 @@ export class RegisterComponent {
   register() {
     debugger
     if (this.email == '') {
-      alert('Please enter the email');
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Info',
+        detail: 'Please enter the email'
+      });
+      // alert('Please enter the email');
       return
     }
 
     if (this.password == '') {
-      alert('Please enter the password');
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Info',
+        detail: 'Please enter the password'
+      });
+      // alert('Please enter the password');
       return
     }
 

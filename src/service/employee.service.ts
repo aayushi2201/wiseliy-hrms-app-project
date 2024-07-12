@@ -25,4 +25,15 @@ export class EmployeeService {
     debugger
     return this.http.get<any>(`${this.apiUrl}/DeleteEmployeeByEmpId?empid=` + empId)
   }
+
+  getbyEmployeeId(id: any) {
+    debugger
+    return this.http.get<any>(`${this.apiUrl}/GetEmployeeByEmpId?empid=` + id)
+  }
+
+  getUpdateEmployee(id: any): Observable<any> {
+    debugger
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json-patch+json' });
+    return this.http.post<any>(`${this.apiUrl}/UpdateEmployee`, id, { headers: headers })
+  }
 }

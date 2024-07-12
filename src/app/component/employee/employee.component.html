@@ -4,7 +4,7 @@
         <form class="form-inline">
             <div class="input-group">
                 <input class="form-control shadow-none mr-sm-2 ms-2" type="search" placeholder="Search by employee name"
-                    aria-label="Search">
+                    aria-label="Search" [(ngModel)]="SearchFilterInput" (keyup)="filterdataChange()">
                 <div class="input-group-append ms-2">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </div>
@@ -44,8 +44,9 @@
                         <td>{{ employee.city }}</td>
                         <td class="empIcon">
                             <i class="fa-solid fa-pen-to-square mx-3" style="color: #135bd8;" pTooltip=" Edit "
-                                tooltipPosition="left"></i>
-                            <i class="fa-solid fa-trash-can" (click)="DeleteEmployee(employee.empId)"></i>
+                                tooltipPosition="top" (click)="viewEditSidePopup(employee.empId)"></i>
+                            <i class="fa-solid fa-trash-can" pTooltip=" Delete "
+                            tooltipPosition="top" (click)="DeleteEmployee(employee.empId)"></i>
                         </td>
                     </tr>
                 </ng-template>
@@ -54,5 +55,7 @@
     </div>
 </div>
 
-<app-add-employee [ShowEmployeeAdd]="addTemplateEmployee" [position]="positionAddEmployee" (update)="updateAddEmp()"
+<app-add-employee [ShowEmployeeAdd]="addTemplateEmployee" [position]="positionAddEmployee" (update)="updateEmployee()"
     (hideSideBarModal)="closeaddEmployee($event)"></app-add-employee>
+
+<app-edit-employee [ShowEmployeeEdit]="editTemplateEmployee" [position]="positionEditEmployee" (update)="updateEmployee()" (hideSideBarModal)="closeEditEmployee($event)"></app-edit-employee>

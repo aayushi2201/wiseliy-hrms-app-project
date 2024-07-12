@@ -1,1 +1,58 @@
-<p>attendance works!</p>
+<p-toast />
+<div class="container">
+    <div class="search-bar">
+        <form class="form-inline">
+            <div class="input-group">
+                <input class="form-control shadow-none mr-sm-2 ms-2" type="search" placeholder="Search by employee name"
+                    aria-label="Search" [(ngModel)]="SearchFilterInput" (keyup)="filterdataChange()">
+                <div class="input-group-append ms-2">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                <div class="input-group-append ms-2">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit"
+                        (click)="createEmployeeAttendace('right')">Add Attendace</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="tableView mt-3 table-bordered">
+        <div class="card">
+            <p-table [value]="attendanceArray" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact No</th>
+                        <th>Date</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
+                        <th>Is Full Days</th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr class="cursor-pointer">
+                        <td>{{ item.empName }}</td>
+                        <td>{{ item.empContactNo }}</td>
+                        <td>{{ item.attendanceDate }}</td>
+                        <td>{{ item.inTime }}</td>
+                        <td>{{ item.outTime }}</td>
+                        <td>{{ item.isFullDay }}</td>
+                        <td class="empIcon">
+                            <i class="fa-solid fa-pen-to-square mx-3" style="color: #135bd8;" pTooltip=" Edit "
+                                tooltipPosition="top" (click)="viewEditSidePopup(item.attendanceId)"></i>
+                            <i class="fa-solid fa-trash-can" pTooltip=" Delete " tooltipPosition="top"
+                                (click)="DeleteEmployee(item.attendanceId)"></i>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<app-add-attendance [ShowAttendanceAdd]="addTemplateAttendance" [position]="positionAddAttendance"
+    (update)="updateEmployee()" (hideSideBarModal)="closeaddAttendance($event)"></app-add-attendance>
+
+<app-edit-attendace [ShowAttendanceEdit]="editTemplateAttendance" [position]="positionEditAttendance"
+    (update)="updateEmployee()" (hideSideBarModal)="closeEditAttendance($event)"></app-edit-attendace>

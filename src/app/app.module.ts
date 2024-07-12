@@ -31,6 +31,10 @@ import { AddEmployeeComponent } from './shared/employee_shared/add-employee/add-
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TooltipModule } from 'primeng/tooltip';
+import { EditEmployeeComponent } from './shared/employee_shared/edit-employee/edit-employee.component';
+import { AddAttendanceComponent } from './shared/add-attendance/add-attendance.component';
+import { EditAttendaceComponent } from './shared/edit-attendace/edit-attendace.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,9 @@ import { TooltipModule } from 'primeng/tooltip';
     AdvanceComponent,
     SalaryComponent,
     AddEmployeeComponent,
+    EditEmployeeComponent,
+    AddAttendanceComponent,
+    EditAttendaceComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +67,8 @@ import { TooltipModule } from 'primeng/tooltip';
     HttpClientModule,
     DialogModule,
     InputTextModule,
-    TooltipModule
+    TooltipModule,
+    DropdownModule
   ],
   providers: [
     MessageService,

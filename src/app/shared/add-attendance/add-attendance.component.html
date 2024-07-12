@@ -1,0 +1,108 @@
+<p-toast />
+<p-dialog [(visible)]="ShowAttendanceAdd" modal="true" [position]="position" class="sidebarModal rightside-modal"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false" (onHide)="closeaddAttendance()"
+    [style]="{width: 'calc(100vw - 50%)', height:'100%', 'max-height':'100%'}">
+    <ng-template pTemplate="header">
+        <div class="d-flex align-items-center">
+            <div class="text-primarycolor fw-semibold ft-14 ms-2">Add Attendance</div>
+        </div>
+    </ng-template>
+
+    <div class="card-body p-3">
+        <form >
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Name:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="empName"
+                        [(ngModel)]="employeeObj.empName" placeholder="Enter Employee Name" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Contact No:</label>
+                    <input type="email" pInputText class="form-control shadow-none" name="empContactNo"
+                        [(ngModel)]="employeeObj.empContactNo" placeholder="Enter Employee Email" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Email:</label>
+                    <input type="tel" pInputText class="form-control shadow-none" name="empEmail"
+                        [(ngModel)]="employeeObj.empEmail" placeholder="Enter Employee Phone" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Address:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="addressLine1"
+                        [(ngModel)]="employeeObj.addressLine1" placeholder="Enter Employee Role" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Pin code:</label>
+                    <input type="tel" pInputText class="form-control shadow-none" name="pincode"
+                        [(ngModel)]="employeeObj.pincode" placeholder="Enter Employee Phone" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">City:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="city"
+                        [(ngModel)]="employeeObj.city" placeholder="Enter Employee Role" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">State:</label>
+                    <input type="tel" pInputText class="form-control shadow-none" name="state"
+                        [(ngModel)]="employeeObj.state" placeholder="Enter Employee Phone" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Bank Name:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="bankName"
+                        [(ngModel)]="employeeObj.bankName" placeholder="Enter Employee Role" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">IFSC:</label>
+                    <input type="tel" pInputText class="form-control shadow-none" name="iFSC"
+                        [(ngModel)]="employeeObj.iFSC" placeholder="Enter Employee Phone" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Account No:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="accountNo"
+                        [(ngModel)]="employeeObj.accountNo" placeholder="Enter Employee Role" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Bank Branch:</label>
+                    <input type="tel" pInputText class="form-control shadow-none" name="bankBranch"
+                        [(ngModel)]="employeeObj.bankBranch" placeholder="Enter Employee Phone" />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <label class="f-muli-bold text-black ft-14 mb-1">Salary:</label>
+                    <input type="text" pInputText class="form-control shadow-none" name="salary"
+                        [(ngModel)]="employeeObj.salary" placeholder="Enter Employee Role" />
+                </div>
+            </div>
+        </form>
+
+        <div class="text-end">
+            <button class="btn btn-sm btn-success mx-2" type="button" (click)="CreateEmployee()">
+                Save
+            </button>
+            <button class="btn btn-sm btn-secondary" type="button" (click)="closeaddAttendance()">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+</p-dialog>
